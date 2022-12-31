@@ -1,0 +1,196 @@
+/* CSS Setup */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+html, body {
+    height: 100%;
+}
+  
+body {
+    transition: none !important;
+    -webkit-font-smoothing: antialiased;
+}
+  
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+  
+input, button, textarea, select {
+    font: inherit;
+}
+  
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* Project CSS */
+
+:root {
+    --cyan: hsl(179, 62%, 43%);
+    --bright-cyan: hsl(179, 47%, 52%);
+    --bright-yellow: hsl(71, 73%, 54%);
+    --light-gray: hsl(204, 43%, 93%);
+    --grayish-blue: hsl(218, 22%, 67%);
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Karla', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-gray);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1.2fr;
+    grid-template-areas: 
+        "information information"
+        "sign-up features";
+    border-radius: 8px;
+    box-shadow: 0px 20px 30px hsla(218, 22%, 67%, 0.3);
+}
+
+#information {
+    grid-area: information;
+    background-color: white;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#sign-up {
+    grid-area: sign-up;
+    background-color: var(--cyan);
+    border-radius: 0px 0px 0px 8px;
+}
+
+#features {
+    grid-area: features;
+    background-color: var(--bright-cyan);
+    border-radius: 0px 0px 8px 0px;
+}
+
+#information, #sign-up, #features {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+h1 {
+    color: var(--cyan);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+#information :nth-child(2){
+    color: var(--bright-yellow);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+#information :nth-child(3){
+    color: var(--grayish-blue);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-top: auto;
+}
+
+h2 {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#sign-up > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+#sign-up > div :nth-child(1) {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#sign-up > div :nth-child(2) {
+    color: hsla(0, 0%, 100%, 0.4);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#sign-up :nth-child(3) {
+    color: hsla(0, 0%, 100%, 0.7);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#sign-up button {
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.9rem;
+    background-color: var(--bright-yellow);
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: auto;
+    box-shadow: 0px 5px 10px hsla(0, 0%, 0%, 0.2);
+}
+
+#features ul {
+    list-style: none;
+}
+
+#features ul li {
+    color: hsla(0, 0%, 100%, 0.6);
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+@media screen and (max-width: 500px) {
+    main {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: none;
+        grid-template-areas: 
+            "information"
+            "sign-up"
+            "features";
+    }
+
+    #sign-up {
+        border-radius: 0px;
+    }
+
+    #features {
+        border-radius: 0px 0px 8px 8px;
+    }
+
+    footer {
+        display: none;
+    }
+}
